@@ -1,0 +1,36 @@
+{
+  "name": "grunt-mysql-backup",
+  "description": "backup or recover mysql",
+  "version": "0.0.1",
+  "homepage": "https://github.com/huyinghuan/grunt-mysql-backup",
+  "author": {
+    "name": "huyinghuan",
+    "email": "ec.huyinghuan@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/huyinghuan/grunt-mysql-backup"
+  },
+  "bugs": {
+    "url": "https://github.com/huyinghuan/grunt-mysql-backup/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/huyinghuan/grunt-file2head/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "mkdirp": "^0.5.0",
+    "moment": "^2.8.3"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  },
+  "keywords": [
+    "gruntplugin",
+    "mysql",
+    "backup mysql",
+    "recover mysql"
+  ]
+}
