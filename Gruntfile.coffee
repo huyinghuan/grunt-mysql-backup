@@ -7,7 +7,7 @@ module.exports = (grunt)->
         password: ''
         host: 'localhost'
         port: 3306
-        database: 'bhf'
+        database: 'chanzhi'
       backup:{}
       recovery:{}
   )

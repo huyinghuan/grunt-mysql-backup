@@ -29,24 +29,33 @@ getNewestSqlFile = (filePath)->
 
 #获取导出数据库sql
 getImportSQL = (connection, filename)->
-  "mysqldbimport
-      --server=#{connection.user}:#{connection.password}@#{connection.host}:#{connection.port or 3306}
-      --import=both
-      --format=sql
-      #{filename}"
+  "mysql
+      --user=#{connection.user}
+      --password=#{connection.password}
+      --host=#{connection.host}
+      --port=#{connection.port or 3306}
+      --database=#{connection.database}
+      < #{filename}"
+#  仅支持5.6以及以上版本
+#  "mysqldbimport
+#      --server=#{connection.user}:#{connection.password}@#{connection.host}:#{connection.port or 3306}
+#      --import=both
+#      --format=sql
+#      #{filename}"
 
 #获取备份数据库sql
 getExportSQL = (connection,  filename)->
   "mysqldump
-      --opt
-      --host=#{connection.host}
-      --port=#{connection.port or 3306}
-      --user=#{connection.user}
-      --password=#{connection.password}
-      --database #{connection.database}
-      >> #{filename}"
+        --opt
+        --host=#{connection.host}
+        --port=#{connection.port or 3306}
+        --user=#{connection.user}
+        --password=#{connection.password}
+        --database #{connection.database}
+        >> #{filename}"
 
-doBackupFail = (error)->
+doBackupFail = (error, filename)->
+  _fs.unlinkSync filename if _fs.existsSync filename
   console.log "备份失败! #{error}"
 
 doBackupSuccess = ()->
@@ -63,7 +72,7 @@ Utils.doBackup = (options, data, cb)->
   shell =  getExportSQL options, filename
   console.log 'doBackup', shell
   _exec shell, (err)->
-    return doBackupFail err if err
+    return doBackupFail err, filename  if err
     doBackupSuccess()
     cb && cb()
 

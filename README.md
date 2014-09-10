@@ -62,3 +62,6 @@ recovery-test: {...}
 #### tasks.dest
 the file path of sql. default is the file in ```backup``` directory. chooss the sql file by lexicographic order
 
+v0.0.2
+
+  1. fixed a bug about import sql to database. the bug just support mysql version 5.6 and up.
