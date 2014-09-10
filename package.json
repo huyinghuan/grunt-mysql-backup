@@ -1,7 +1,7 @@
 {
   "name": "grunt-mysql-backup",
   "description": "backup or recover mysql",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/huyinghuan/grunt-mysql-backup",
   "author": {
     "name": "huyinghuan",
